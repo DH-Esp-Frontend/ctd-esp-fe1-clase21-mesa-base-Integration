@@ -1,15 +1,18 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import videogamesSlice from "./slice";
-import createSagaMiddleware from "redux-saga";
-import { sagas } from "../saga/sagaMiddleware";
 
-const sagaMiddleware = createSagaMiddleware();
+/*
+  En este archivo deberás importar todo lo necesario para que corra el middleware de saga.
+  Dentro del método concat() deberás utilizar tu función gereradora.
+*/
+
+
 const store = configureStore({
   reducer: videogamesSlice,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(/* */),
 });
 
-sagaMiddleware.run(sagas)
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export default store;
